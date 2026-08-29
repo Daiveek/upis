@@ -1,0 +1,17 @@
+import Link from "next/link";
+
+const questions = [
+  ["What is UPIS?", "UPIS is the Unified Property Identity System. It brings your property records, verification history and Property Passports together under one identity."],
+  ["What is a Property Passport?", "It is the physical and digital credential issued through UPIS. One Passport can connect all of your verified properties."],
+  ["Why is PAN used?", "In this prototype, PAN helps create one unique UPIS identity. Use fictional information only while testing this competition demo."],
+  ["How do I add a property?", "Create or sign in to your UPIS identity, upload a fictional Sale Deed, check the extracted details, then submit the application."],
+  ["How does verification work?", "The prototype follows document checks, a property visit, field verification and supervisory approval before a property is marked verified."],
+  ["What happens if verification fails?", "UPIS will show that more information or document resubmission is needed. Your Passport and other property records stay available."],
+  ["How do I sign in?", "Scan or upload your Property Passport, then complete the fictional demo identity confirmation. Your Passport ID opens the right UPIS record."],
+  ["What if I lose my Passport?", "Your property record remains safe. Request a replacement from your Passport; it stays connected to the same UPIS identity."],
+  ["How are documents protected?", "Private document access requires authentication. This competition prototype uses fictional document metadata and does not connect to government systems."],
+] as const;
+
+export default function HelpPage() {
+  return <main className="min-h-screen bg-cream"><header className="mx-auto flex max-w-5xl items-center justify-between px-5 py-6 sm:px-8"><Link href="/" className="flex items-center gap-3"><span className="grid h-10 w-10 place-items-center rounded-xl bg-moss text-lg font-bold text-white">U</span><span className="text-sm font-bold tracking-[.11em] text-ink">UPIS<br/><span className="text-[10px] tracking-[.08em] text-[#627067]">PROPERTY IDENTITY</span></span></Link><Link href="/scan" className="rounded-full border border-[#b9c6b8] px-4 py-2 text-sm font-semibold text-moss">Sign in</Link></header><section className="mx-auto max-w-5xl px-5 pb-16 pt-8 sm:px-8"><p className="text-xs font-bold tracking-[.16em] text-saffron">HELP CENTER</p><h1 className="mt-3 max-w-2xl text-4xl font-semibold tracking-[-.05em] text-ink sm:text-5xl">Clear answers for your property journey.</h1><p className="mt-5 max-w-2xl text-lg leading-8 text-[#5c6b60]">You do not need to know the paperwork language. Start with what you are trying to do, and UPIS will guide you step by step.</p><div className="mt-10 grid gap-4 md:grid-cols-2">{questions.map(([question, answer]) => <article key={question} className="rounded-3xl border border-[#dde4dc] bg-white p-6 shadow-card"><h2 className="text-lg font-semibold text-ink">{question}</h2><p className="mt-3 text-sm leading-6 text-[#637168]">{answer}</p></article>)}</div><div className="mt-10 rounded-3xl bg-[#315e4c] p-6 text-white sm:flex sm:items-center sm:justify-between"><div><p className="text-xs font-bold tracking-[.15em] text-[#d2e2c9]">STILL NEED HELP?</p><p className="mt-2 text-lg font-semibold">Ask the Property Passport Assistant in your own words.</p></div><Link href="/#assistant" className="mt-5 inline-flex rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-moss sm:mt-0">Open assistant</Link></div></section></main>;
+}

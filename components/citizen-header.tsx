@@ -1,0 +1,5 @@
+"use client";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+
+export function CitizenHeader() { const router = useRouter(); const signOut = async () => { await fetch("/api/upis/session", { method: "DELETE" }); router.push("/signin"); }; return <header className="mx-auto flex max-w-7xl items-center justify-between px-5 py-6 sm:px-8 lg:px-10"><Link href="/" className="flex items-center gap-3"><span className="grid h-10 w-10 place-items-center rounded-xl bg-moss text-lg font-bold text-white">U</span><span className="text-sm font-bold tracking-[.11em] text-ink">UPIS<br/><span className="text-[9px] tracking-[.08em]">PROPERTY IDENTITY</span></span></Link><nav className="flex items-center gap-2 text-sm font-semibold text-moss"><Link href="/passport" className="hidden sm:block">My passport</Link><Link href="/passport/status" className="hidden rounded-full border border-[#b9c6b8] px-4 py-2 sm:block">Status</Link><button onClick={signOut} className="rounded-full border border-[#b9c6b8] px-4 py-2">Sign out</button></nav></header>; }

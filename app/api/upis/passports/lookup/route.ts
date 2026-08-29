@@ -1,0 +1,3 @@
+import { NextResponse } from "next/server";
+import { passportLookup } from "@/lib/repositories/upis-repository";
+export async function POST(request: Request) { try { const body = await request.json() as { passportId?: string }; const passportId = body.passportId?.trim().toUpperCase(); if (!passportId) return NextResponse.json({ error: "Enter a Passport ID." }, { status: 400 }); const result = await passportLookup(passportId); return result ? NextResponse.json(result) : NextResponse.json({ error: "Passport not found." }, { status: 404 }); } catch { return NextResponse.json({ error: "Passport lookup is temporarily unavailable." }, { status: 503 }); } }
